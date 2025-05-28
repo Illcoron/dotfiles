@@ -1,1 +1,1 @@
-To use the configuration files, just put them in the _folder_-files describes folders
+To use the configuration files pull the directory and execute the install.sh script from the repo root folder with your desired user
