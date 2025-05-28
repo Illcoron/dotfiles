@@ -3,9 +3,11 @@
 rollOut () {
     if [ -f "folder" ]; then
         file=$(cat folder)
+        currentFolder=$PWD
+        echo "Current folder -- $currentFolder"
         for f in *; do
             if ! [ "$f" == "folder" ]; then
-                echo "$f nach $file"
+                echo -e "linking source file \e[33m $f \e[0m to destination location \e[33m \e[0m $file"
                 mv $f $file
             fi
         done
@@ -13,8 +15,11 @@ rollOut () {
         for f in *; do
             if [ -d "$f" ]; then
                 cd $f
+                echo "moving foreward to directory $f"
                 rollOut
                 cd ..
+                dir=$(basename $PWD)
+                echo "mooving to parent directory $dir"
             fi
         done
     fi
