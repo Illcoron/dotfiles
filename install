@@ -1,19 +1,28 @@
 #!/usr/bin/env bash
 
+# -- Variable content #
+#
+#   - $file             - destination folder of current config folder               --  String
+#   - $f                - iterates through all files and directorys in directory    --  String
+#   - $currentFolder    - saves the current directory (just for user information)   --  String
+
 rollOut () {
+    # checks if in the folder is a file named "folder"
+    #  -> this file defines the destinationfolder of the content of the current folder
     if [ -f "folder" ]; then
-        file=$(cat folder)
+        file=$(cat folder) # defines the file variable
         currentFolder=$PWD
-        echo "Current folder -- $currentFolder"
-        for f in *; do
-            if ! [ "$f" == "folder" ]; then
+        mkdir -p $file
+        echo "Current folder -- $currentFolder" # informs about the current folder, the script is working on
+        for f in *; do                          # | 
+            if ! [ "$f" == "folder" ]; then     # | iterates through every file and directory in the current directory without the folder file
                 echo -e "linking source file \e[33m $f \e[0m to destination location \e[33m \e[0m $file"
-                mv $f $file
+                ln -sf $f $file                 # links the current file / directory to its destination folder
             fi
         done
-    else
-        for f in *; do
-            if [ -d "$f" ]; then
+    else # if there is no folder file in the current directory
+        for f in *; do              # |
+            if [ -d "$f" ]; then    # | iterates through all directorys in the current  working directory and repeats the rollOut recursivly
                 cd $f
                 echo "moving foreward to directory $f"
                 rollOut
@@ -26,3 +35,7 @@ rollOut () {
 }
 
 rollOut
+
+## TODO
+# Hidden .tmux.conf file wount be find
+# check if directory exists, if not create it
