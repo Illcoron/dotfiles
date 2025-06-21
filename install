@@ -10,18 +10,18 @@ rollOut () {
     # checks if in the folder is a file named "folder"
     #  -> this file defines the destinationfolder of the content of the current folder
     if [ -f "folder" ]; then
-        file= $HOME$(cat folder) # defines the file variable
+        file=$HOME$(cat folder) # defines the file variable
         currentFolder=$PWD
         mkdir -p $file
         echo "Current folder -- $currentFolder" # informs about the current folder, the script is working on
-        for f in *; do                          # | 
+        for f in $(ls -A); do                          # | 
             if ! [ "$f" == "folder" ]; then     # | iterates through every file and directory in the current directory without the folder file
                 echo -e "linking source file \e[33m $f \e[0m to destination location \e[33m \e[0m $file"
                 ln -sf $f $file                 # links the current file / directory to its destination folder
             fi
         done
     else # if there is no folder file in the current directory
-        for f in !(eza -a); do              # |
+        for f in $(ls -A); do              # |
             if [ -d "$f" ]; then    # | iterates through all directorys in the current  working directory and repeats the rollOut recursivly
                 cd $f
                 echo "moving foreward to directory $f"
