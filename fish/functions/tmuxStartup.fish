@@ -26,7 +26,7 @@ function tmuxStartup
                         tmux send-keys -t 0.2 "clear" Enter
                         tmux send-keys -t 0.0 "clear" Enter
                         tmux select-pane -t 0.0
-                        tmux send-keys -t 0.1 "nvim ~/Documents/Link\ to\ Zettlr/Projekte.md" Enter
+                        tmux send-keys -t 0.1 "nvim ~/Documents/ToDo/README.md" Enter
                         sleep 0.2
                         tmux attach-session
                     case 3
