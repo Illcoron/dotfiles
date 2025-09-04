@@ -17,7 +17,7 @@ rollOut () {
         for f in $(ls -A); do                          # | 
             if ! [ "$f" == "folder" ]; then     # | iterates through every file and directory in the current directory without the folder file
                 echo -e "linking source file \e[33m $f \e[0m to destination location \e[33m \e[0m $file"
-                ln -sf $f $file                 # links the current file / directory to its destination folder
+		ln -sf $PWD'/'$f $file                 # links the current file / directory to its destination folder
             fi
         done
     else # if there is no folder file in the current directory
