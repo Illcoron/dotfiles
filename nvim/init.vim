@@ -21,3 +21,6 @@ set shiftwidth=4
 
 " Center active line
 set scrolloff=999
+
+" Syntaxhighlighting
+syntax on
