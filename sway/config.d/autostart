@@ -1,0 +1,20 @@
+# Autostart with sway
+#/======
+#/
+#/ Give waybar some time to start so systray is
+#/ available when auostarting apps
+
+exec sh -c "sleep 2"
+
+
+# Autostart-Application
+
+## Cloud-Services
+exec pcloud
+exec QT_SCALE_FACTOR=1 QT_QPA_PLATFORM=xcb megasync >/dev/null
+
+## De- / Encryption
+exec cryptomator
+
+## Others
+exec keepassxc
