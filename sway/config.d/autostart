@@ -4,17 +4,87 @@
 #/ Give waybar some time to start so systray is
 #/ available when auostarting apps
 
-exec sh -c "sleep 2"
+# Workspaces
 
+## Background
 
-# Autostart-Application
+### Cloud-Services
+exec sh -c "sleep 2" && exec pcloud
+exec sh -c "sleep 2" && megasync
 
-## Cloud-Services
-exec pcloud
-exec QT_SCALE_FACTOR=1 QT_QPA_PLATFORM=xcb megasync >/dev/null
+# -- ## Workspace 1
+# -- workspace 1
+# -- 
+# -- exec sleep 5
+# -- 
+# -- ## Workspace 2
+# -- workspace 2
+# -- 
+# -- exec sleep 5
+# -- 
+# -- ## Workspace 3
+# -- workspace 3
+# -- 
+# -- exec sleep 5
+# -- 
+# -- ## Workspace 4
+# -- workspace 4
+# -- 
+# -- exec sleep 5
+# -- 
+# -- ## Workspace 5
+# -- workspace 5
+# -- 
+# -- exec sleep 5
+# -- 
+# -- ## Workspace 6
+# -- workspace 6
+# -- 
+# -- exec sleep 5
+# -- 
+# -- ## Workspace 7
+# -- workspace 7
+# -- 
+# -- exec sleep 5
 
-## De- / Encryption
-exec cryptomator
+## Workspace 8
+# -- workspace 8
 
-## Others
-exec keepassxc
+# -- exec sh -c "sleep 2" && exec thunderbird
+
+## Workspace 10
+workspace 10
+
+### De- / Encryption
+exec sh -c "sleep 2" && exec cryptomator
+assign [class="cryptomator"] workspace 10
+
+### Others
+exec sh -c "sleep 2" && exec keepassxc
+
+# --- ## Workspace 9
+# --- workspace 9
+# --- 
+# --- ### Messagner
+# --- exec Telegram
+# --- exec signal-desktop
+# --- exec element-desktop
+# --- 
+# --- layout splitv
+# --- 
+# --- #for_window [class="Signal"] move position 0 0; resize set 690 1200
+# --- for_window [class="Signal"] move container to position 0 0
+# --- 
+# --- layout splith
+# --- 
+# --- #for_window [app_id="org.telegram.desktop"] move position 960 600; resize set 960 600
+# --- #for_window [class="Element"] move position 960 0; resize set 960 600
+# --- 
+# --- for_window [class="Element"] move container to position 960 0
+# --- for_window [app_id="org.telegram.desktop"] move container to position 960 600
+
+workspace 9
+
+exec sh -c "sleep 2" && exec signal-desktop
+exec sh -c "sleep 2" && exec element-desktop
+exec sh -c "sleep 2" && exec Telegram
