@@ -1,0 +1,24 @@
+alias IntelliJ='idea'
+alias Chrome='chromium'
+
+
+# Display, listing and coloring
+alias grep='grep --color=auto'
+alias ll='ls -la --color=auto'
+alias l='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias tree='exa --tree --long --group --header --icons --color=always --sort=type'
+
+# automatic install packages with sudo
+alias xbps-install='sudo xbps-install'
+alias xbps-remove='sudo xbps-remove'
+
+# ToDos
+alias todo='cat /home/kitsune/Documents/ToDo/README.md'
+alias vido='vim /home/kitsune/Documents/ToDo/README.md'
+
+# OS
+alias lsblkl='lsblk -o NAME,LABEL,FSTYPE,MOUNTPOINT'
+
+# SSH
+alias sshagent="echo \"eval \\\$(ssh-agent -s)\""

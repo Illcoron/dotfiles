@@ -5,7 +5,7 @@ set relativenumber
 " Keybindings
 inoremap jj <Esc>
 inoremap kk <bs>
-        
+
 " Cursor
 set cursorline
 let &t_SI = "\e[6 q"

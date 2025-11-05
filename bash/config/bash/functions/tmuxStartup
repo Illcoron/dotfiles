@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+tmuxStartup() {
+    if command -v tmux >/dev/null 2>&1; then
+        if [ -z "$TMUX" ]; then
+            if ! tmux attach-session; then
+                choice=$(dialog --menu "Which template do you want?" 15 40 5 \
+                    1 "Lecture" \
+                    2 "Hobby Thingy" \
+                    3 "C Programming" \
+                    4 "OS Things" \
+                    5 "Don't open a tmux session" \
+                    3>&1 1>&2 2>&3)
+
+                clear
+                fastfetch
+
+                case "$choice" in
+                    1)
+                        cd ~/Semester2 || exit
+                        tmux new-session -d
+                        exec tmux attach-session
+                        ;;
+                    2)
+                        tmux new-session -d
+                        tmux split-window -h
+                        tmux split-window -v
+                        tmux send-keys -t 0.1 "clear" Enter
+                        tmux send-keys -t 0.2 "clear" Enter
+                        tmux send-keys -t 0.0 "clear" Enter
+                        tmux select-pane -t 0.0
+                        tmux send-keys -t 0.1 "nvim ~/Documents/ToDo/README.md" Enter
+                        sleep 0.2
+                        exec tmux attach-session
+                        ;;
+                    3)
+                        cd /home/kitsune/Programming/Programmieren2-Uebungen/C || exit
+                        tmux new-session -d
+                        tmux split-window -h
+                        tmux split-window -v
+                        tmux send-keys -t 0.1 "clear" Enter
+                        tmux send-keys -t 0.2 "clear" Enter
+                        tmux send-keys -t 0.0 "clear" Enter
+                        tmux select-pane -t 0.0
+                        tmux send-keys -t 0.1 "printProgrammingInformation" Enter
+                        sleep 0.2
+                        exec tmux attach-session
+                        ;;
+                    4)
+                        tmux new-session -d
+                        tmux split-window -h
+                        tmux split-window -v
+                        tmux send-keys -t 0.0 "clear" Enter
+                        tmux send-keys -t 0.1 "clear" Enter
+                        tmux send-keys -t 0.2 "clear" Enter
+                        tmux select-pane -t 0.0
+                        sleep 0.2
+                        tmux send-keys -t 0.1 "clear && printOsInformation" Enter
+                        exec tmux attach-session
+                        ;;
+                    5)
+                        cd ~ || exit
+                        ;;
+                esac
+            fi
+        fi
+    fi
+}

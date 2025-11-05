@@ -4,6 +4,7 @@
 #/ Give waybar some time to start so systray is
 #/ available when auostarting apps
 
+
 # Workspaces
 
 ## Background
@@ -11,6 +12,7 @@
 ### Cloud-Services
 exec sh -c "sleep 2" && exec pcloud
 exec sh -c "sleep 2" && megasync
+exec sh -c "sleep 2" && dropbox start
 
 # -- ## Workspace 1
 # -- workspace 1
