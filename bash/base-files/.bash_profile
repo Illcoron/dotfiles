@@ -7,4 +7,4 @@
 # Added by Toolbox App
 export PATH="$PATH:/home/kitsune/.local/share/JetBrains/Toolbox/scripts"
 
-# eval $(ssh-agent -s)
+eval $(ssh-agent -s)
