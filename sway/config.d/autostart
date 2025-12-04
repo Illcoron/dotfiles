@@ -54,6 +54,8 @@ exec sh -c "sleep 2" && dropbox start
 
 # -- exec sh -c "sleep 2" && exec thunderbird
 
+## Workspace 9
+
 ## Workspace 10
 workspace 10
 
@@ -64,29 +66,7 @@ assign [class="cryptomator"] workspace 10
 ### Others
 exec sh -c "sleep 2" && exec keepassxc
 
-# --- ## Workspace 9
-# --- workspace 9
-# --- 
-# --- ### Messagner
-# --- exec Telegram
-# --- exec signal-desktop
-# --- exec element-desktop
-# --- 
-# --- layout splitv
-# --- 
-# --- #for_window [class="Signal"] move position 0 0; resize set 690 1200
-# --- for_window [class="Signal"] move container to position 0 0
-# --- 
-# --- layout splith
-# --- 
-# --- #for_window [app_id="org.telegram.desktop"] move position 960 600; resize set 960 600
-# --- #for_window [class="Element"] move position 960 0; resize set 960 600
-# --- 
-# --- for_window [class="Element"] move container to position 960 0
-# --- for_window [app_id="org.telegram.desktop"] move container to position 960 600
-
-workspace 9
-
+### Messanger
 exec sh -c "sleep 2" && exec signal-desktop
 exec sh -c "sleep 2" && exec element-desktop
 exec sh -c "sleep 2" && exec Telegram

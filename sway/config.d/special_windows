@@ -1,0 +1,9 @@
+#
+# Special Windows
+#
+for_window [app_id="org.keepassxc.KeePassXC"] \
+    floating enable
+
+for_window [class="MEGAsync"] \
+    floating enable \
+    move position pointer
