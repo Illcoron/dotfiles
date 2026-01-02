@@ -4,6 +4,6 @@
 for_window [app_id="org.keepassxc.KeePassXC"] \
     floating enable
 
-for_window [class="MEGAsync"] \
+for_window [class="MEGASync"] \
     floating enable \
     move position pointer

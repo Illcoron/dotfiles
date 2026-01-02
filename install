@@ -32,10 +32,8 @@ rollOut () {
             fi
         done
     fi
+
+    ln -s $HOME/.config/nvim/init.vim $HOME/.vimrc
 }
 
 rollOut
-
-## TODO
-# Hidden .tmux.conf file wount be find
-# check if directory exists, if not create it
